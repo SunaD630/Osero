@@ -2,8 +2,7 @@
 //  SceneDelegate.swift
 //  Osero
 //
-//  Created by 達巳 on 2022/05/23.
-//
+
 
 import UIKit
 
