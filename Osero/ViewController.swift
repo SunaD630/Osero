@@ -18,23 +18,30 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                           [0,0,0,0,0,0,0,0]]
     var stone = 1
     
-    func reverse(x:Int, y:Int, board: [[Int]]){
+    //リバース
+    func reverse(x:Int, y:Int, board: [[Int]])->Int{//端っこ注意
+        var judge:Int = 0 //リバースがあったら1
         for i in -1..<2{
             for j in -1..<2{
-                if i == 0 && j == 0{break}
+                if i == 0 && j == 0{continue}//石を置いた位置は調べなくてもいい
+                if (0<=x+i && x+i<boardsize && 0<=y+j && y+j<boardsize && board[y+j][x+i] == 0){continue}//隣が何もなければ挟めない
                 var dist:Int = 1
-                while (0<=x+i*dist && x+i*dist<boardsize && 0<=y+j*dist && y+j*dist<boardsize){
+                while (0<=x+i*dist && x+i*dist<boardsize && 0<=y+j*dist && y+j*dist<boardsize && board[y+j*dist][x+i*dist] == stone*(-1)){
                     if board[y+j*dist][x+i*dist] == stone{break}
                     dist += 1
                 }
-                if (dist==1 || 0>x+i*dist || x+i*dist>=boardsize || 0>y+j*dist || y+j*dist>=boardsize){
+                
+                print(i,j,dist,stone)
+                if (dist != 1 && 0 <= x+i*dist && x+i*dist < boardsize && 0 <= y+j*dist && y+j*dist < boardsize && board[y+j*dist][x+i*dist] != 0){
+                    //print(x+i*dist,y+j*dist)
+                    judge = 1
                     for k in 0..<dist{
-                        board[y+j*k][x+i*k] = stone
+                        self.board[y+j*k][x+i*k] = stone
                     }
-                    stone *= -1
                 }
             }
         }
+        return judge
     }
     
     
@@ -92,10 +99,14 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView,
                               didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)!
-        let label = cell.contentView.viewWithTag(1) as! UILabel
-        
-        label.text = "o"
+        //let cell = collectionView.cellForItem(at: indexPath)!
+        //let label = cell.contentView.viewWithTag(1) as! UILabel
+        var rev_judge = 0
+        rev_judge = reverse(x: indexPath.row,y: indexPath.section,board: board)
+        if rev_judge == 1{
+            stone *= -1
+        }
+        collectionView.reloadData()
     }
 
     override func viewDidLoad() {
