@@ -100,9 +100,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         if white>black{//white win
             return 1
         }else if black>white{//black win
-            return 2
-        }else{//draw
             return -1
+        }else{//draw
+            return 2
         }
     }
     
