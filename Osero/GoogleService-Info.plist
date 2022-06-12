@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>47254118850-e408cbb3th0cbc9t6vqj1nl2nj3p2jia.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.47254118850-e408cbb3th0cbc9t6vqj1nl2nj3p2jia</string>
+	<key>API_KEY</key>
+	<string>AIzaSyASA4TThIWogAsntfkj3hm4x0J2yseECWA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>47254118850</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.litech.Osero</string>
+	<key>PROJECT_ID</key>
+	<string>osero-58387</string>
+	<key>STORAGE_BUCKET</key>
+	<string>osero-58387.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:47254118850:ios:7e89150513411704a1f65b</string>
+</dict>
+</plist>

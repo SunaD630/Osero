@@ -16,10 +16,33 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                           [0,0,0,0,0,0,0,0],
                           [0,0,0,0,0,0,0,0],
                           [0,0,0,0,0,0,0,0]]
+    var prev_board:[[Int]] = [[0,0,0,0,0,0,0,0],
+                              [0,0,0,0,0,0,0,0],
+                              [0,0,0,0,0,0,0,0],
+                              [0,0,0,-1,1,0,0,0],
+                              [0,0,0,1,-1,0,0,0],
+                              [0,0,0,0,0,0,0,0],
+                              [0,0,0,0,0,0,0,0],
+                              [0,0,0,0,0,0,0,0]]
     var stone = 1
+    var finishScore:Int!
     
+    @IBOutlet weak var enemyScore:UILabel!
+    @IBOutlet weak var myScore:UILabel!
+    @IBAction func pass(){
+        stone *= -1
+    }
+    @IBAction func redo(){
+        if board != prev_board{
+            board = prev_board
+            stone *= -1
+        }
+        
+        loadView()
+        viewDidLoad()
+    }
     //リバース
-    func reverse(x:Int, y:Int, board: [[Int]])->Int{//端っこ注意
+    func reverse(x:Int, y:Int, board: [[Int]])->Int{
         var judge:Int = 0 //リバースがあったら1
         for i in -1..<2{
             for j in -1..<2{
@@ -42,6 +65,45 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             }
         }
         return judge
+    }
+    
+    //count
+    func countStone(board: [[Int]], stone: Int) -> Int{
+        var count:Int = 0
+        for i in 0..<boardsize{
+            for j in 0..<boardsize{
+                if (self.board[j][i] == stone){
+                    count += 1
+                }
+            }
+        }
+        return count
+    }
+    
+    //finish
+    func gameFinish(board: [[Int]]) -> Int{
+        var black:Int = 0
+        var white:Int = 0
+        for i in 0..<boardsize{
+            for j in 0..<boardsize{
+                if board[j][i] == 1{
+                    white += 1
+                }
+                if board[j][i] == -1{
+                    black += 1
+                }
+                if board[j][i] == 0{//not finish yet
+                    return 0
+                }
+            }
+        }
+        if white>black{//white win
+            return 1
+        }else if black>white{//black win
+            return 2
+        }else{//draw
+            return -1
+        }
     }
     
     
@@ -83,15 +145,15 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
 
         //セル上のTag(1)とつけたUILabelを生成
-        let label = cell.contentView.viewWithTag(1) as! UILabel
-
+        //let label = cell.contentView.viewWithTag(1) as! UILabel
+        let imageView = cell.contentView.viewWithTag(2) as! UIImageView
         switch board[indexPath.section][indexPath.row]{
         case 1:
-            label.text = "o"
+            imageView.image = UIImage(named: "white")
         case -1:
-            label.text = "・"
+            imageView.image = UIImage(named: "black")
         default:
-            label.text = ""
+            imageView.image = UIImage(named: "background")
         }
 
         return cell
@@ -99,19 +161,37 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     // Cell が選択された場合
     func collectionView(_ collectionView: UICollectionView,
                               didSelectItemAt indexPath: IndexPath) {
-        //let cell = collectionView.cellForItem(at: indexPath)!
-        //let label = cell.contentView.viewWithTag(1) as! UILabel
+        prev_board = board
         var rev_judge = 0
         rev_judge = reverse(x: indexPath.row,y: indexPath.section,board: board)
         if rev_judge == 1{
             stone *= -1
         }
+        enemyScore.text = "Player 2:  " + String(countStone(board: board, stone: -1))
+        myScore.text = "Player 1:  " + String(countStone(board: board, stone: 1))
+        if countStone(board: board, stone: 1) == 0 || (countStone(board: board, stone: -1) == 0){
+            if countStone(board: board, stone: 1) == 0{finishScore = -1}
+            if countStone(board:board, stone: -1) == 0{finishScore = 1}
+            let finishView = storyboard?.instantiateViewController(withIdentifier: "FinishViewController") as! FinishViewController
+            finishView.modalPresentationStyle = .fullScreen
+            finishView.score = finishScore
+            self.present(finishView, animated: true, completion: nil)
+        }
         collectionView.reloadData()
+        finishScore = gameFinish(board: board)
+        if finishScore != 0{
+            let finishView = storyboard?.instantiateViewController(withIdentifier: "FinishViewController") as! FinishViewController
+            finishView.modalPresentationStyle = .fullScreen
+            finishView.score = finishScore
+            self.present(finishView, animated: true, completion: nil)
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        enemyScore.text = "Player 2:  " + String(countStone(board: board, stone: -1))
+        myScore.text = "Player 1:  " + String(countStone(board: board, stone: 1))
     }
 
 

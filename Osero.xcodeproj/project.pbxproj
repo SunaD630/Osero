@@ -16,6 +16,13 @@
 		0D1978F4283BCEE100417863 /* OseroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1978F3283BCEE100417863 /* OseroTests.swift */; };
 		0D1978FE283BCEE100417863 /* OseroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1978FD283BCEE100417863 /* OseroUITests.swift */; };
 		0D197900283BCEE100417863 /* OseroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1978FF283BCEE100417863 /* OseroUITestsLaunchTests.swift */; };
+		0DB966492853196F001729CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DB966482853196F001729CA /* GoogleService-Info.plist */; };
+		0DB9664C28531CC6001729CA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0DB9664B28531CC6001729CA /* FirebaseAnalytics */; };
+		0DB9665228539463001729CA /* MakeMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9665128539463001729CA /* MakeMatchViewController.m */; };
+		0DB96654285428BF001729CA /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB96653285428BF001729CA /* StartViewController.swift */; };
+		0DB9665628543250001729CA /* osero.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0DB9665528543250001729CA /* osero.jpeg */; };
+		0DB966582855ADBE001729CA /* PlayFabSDK in Resources */ = {isa = PBXBuildFile; fileRef = 0DB966572855ADBD001729CA /* PlayFabSDK */; };
+		0DB9665A2855F525001729CA /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB966592855F525001729CA /* FinishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,14 @@
 		0D1978F9283BCEE100417863 /* OseroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OseroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1978FD283BCEE100417863 /* OseroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OseroUITests.swift; sourceTree = "<group>"; };
 		0D1978FF283BCEE100417863 /* OseroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OseroUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0DB966482853196F001729CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0DB9664F28539461001729CA /* Osero-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Osero-Bridging-Header.h"; sourceTree = "<group>"; };
+		0DB9665028539463001729CA /* MakeMatchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakeMatchViewController.h; sourceTree = "<group>"; };
+		0DB9665128539463001729CA /* MakeMatchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MakeMatchViewController.m; sourceTree = "<group>"; };
+		0DB96653285428BF001729CA /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		0DB9665528543250001729CA /* osero.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = osero.jpeg; sourceTree = "<group>"; };
+		0DB966572855ADBD001729CA /* PlayFabSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlayFabSDK; sourceTree = "<group>"; };
+		0DB966592855F525001729CA /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB9664C28531CC6001729CA /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +95,7 @@
 		0D1978D0283BCED900417863 = {
 			isa = PBXGroup;
 			children = (
+				0DB966572855ADBD001729CA /* PlayFabSDK */,
 				0D1978DB283BCED900417863 /* Osero */,
 				0D1978F2283BCEE100417863 /* OseroTests */,
 				0D1978FC283BCEE100417863 /* OseroUITests */,
@@ -102,10 +119,17 @@
 				0D1978DC283BCED900417863 /* AppDelegate.swift */,
 				0D1978DE283BCED900417863 /* SceneDelegate.swift */,
 				0D1978E0283BCED900417863 /* ViewController.swift */,
+				0DB96653285428BF001729CA /* StartViewController.swift */,
+				0DB966592855F525001729CA /* FinishViewController.swift */,
+				0DB9665028539463001729CA /* MakeMatchViewController.h */,
+				0DB9665128539463001729CA /* MakeMatchViewController.m */,
 				0D1978E2283BCED900417863 /* Main.storyboard */,
 				0D1978E5283BCEE000417863 /* Assets.xcassets */,
 				0D1978E7283BCEE000417863 /* LaunchScreen.storyboard */,
 				0D1978EA283BCEE000417863 /* Info.plist */,
+				0DB966482853196F001729CA /* GoogleService-Info.plist */,
+				0DB9664F28539461001729CA /* Osero-Bridging-Header.h */,
+				0DB9665528543250001729CA /* osero.jpeg */,
 			);
 			path = Osero;
 			sourceTree = "<group>";
@@ -143,6 +167,9 @@
 			dependencies = (
 			);
 			name = Osero;
+			packageProductDependencies = (
+				0DB9664B28531CC6001729CA /* FirebaseAnalytics */,
+			);
 			productName = Osero;
 			productReference = 0D1978D9283BCED900417863 /* Osero.app */;
 			productType = "com.apple.product-type.application";
@@ -195,6 +222,7 @@
 				TargetAttributes = {
 					0D1978D8283BCED900417863 = {
 						CreatedOnToolsVersion = 13.4;
+						LastSwiftMigration = 1340;
 					};
 					0D1978EE283BCEE100417863 = {
 						CreatedOnToolsVersion = 13.4;
@@ -215,6 +243,9 @@
 				Base,
 			);
 			mainGroup = 0D1978D0283BCED900417863;
+			packageReferences = (
+				0DB9664A28531CC6001729CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0D1978DA283BCED900417863 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +263,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D1978E9283BCEE000417863 /* LaunchScreen.storyboard in Resources */,
+				0DB966582855ADBE001729CA /* PlayFabSDK in Resources */,
+				0DB9665628543250001729CA /* osero.jpeg in Resources */,
+				0DB966492853196F001729CA /* GoogleService-Info.plist in Resources */,
 				0D1978E6283BCEE000417863 /* Assets.xcassets in Resources */,
 				0D1978E4283BCED900417863 /* Main.storyboard in Resources */,
 			);
@@ -261,6 +295,9 @@
 				0D1978E1283BCED900417863 /* ViewController.swift in Sources */,
 				0D1978DD283BCED900417863 /* AppDelegate.swift in Sources */,
 				0D1978DF283BCED900417863 /* SceneDelegate.swift in Sources */,
+				0DB9665228539463001729CA /* MakeMatchViewController.m in Sources */,
+				0DB96654285428BF001729CA /* StartViewController.swift in Sources */,
+				0DB9665A2855F525001729CA /* FinishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 72L9A4ZN4Q;
@@ -453,6 +491,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Osero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Osero/Osero-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 72L9A4ZN4Q;
@@ -481,6 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.Osero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Osero/Osero-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -602,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0DB9664A28531CC6001729CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0DB9664B28531CC6001729CA /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DB9664A28531CC6001729CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0D1978D1283BCED900417863 /* Project object */;
 }
